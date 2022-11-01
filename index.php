@@ -22,6 +22,7 @@ if( isset($_FILES['uplfile']) ){
 <html>
 	<title>Lae Drive</title>
 	<head>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
 	<style>
 	body{
 		font-family: sans-serif;
