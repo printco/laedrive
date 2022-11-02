@@ -1,4 +1,7 @@
 <?php
+
+$upload_max_filesize = ini_get("upload_max_filesize");
+
 $upload = false;
 $css = "";
 if( isset($_FILES['uplfile']) ){
@@ -48,9 +51,19 @@ if( isset($_FILES['uplfile']) ){
 		font-weight: bold;
 		color: #ef7242;
 	}
+	.noti {
+		font-size: 10px;
+		padding: 3px 0;
+		background: #f9f9e5;
+		border: 1px solid #e5e5b7;
+		color: #4a4a2b;
+		width: 310px;
+		margin-bottom: 22px;
+	}
 	</style>
 	</head>
 	<body>
+		<div class='noti'>Maximum upload file size <?php echo $upload_max_filesize;?></div>
 		<?php
 		if( $upload ){
 			echo "<div class='msg $css'>$msg</div>";
