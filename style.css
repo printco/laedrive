@@ -77,7 +77,6 @@ input {
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 .progress {
-    background-color: #3fee8c;
     position: relative;
     margin: 20px;
     height: 1.2rem;
