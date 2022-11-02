@@ -1,0 +1,97 @@
+body{
+	font-family: sans-serif;
+	font-size: 13px;
+}
+.success {
+	background: #d6f3d6;
+	padding: 5px;
+	width: 300px;
+	text-align: center;
+	margin: 5px;
+	border: 1px solid green;
+	font-weight: bold;
+	color: green;
+}
+.error {
+	background: #efe3d8;
+	padding: 5px;
+	width: 300px;
+	text-align: center;
+	margin: 5px;
+	border: 1px solid #c77955;
+	font-weight: bold;
+	color: #ef7242;
+}
+.noti {
+	font-size: 10px;
+	padding: 3px 0;
+	background: #f9f9e5;
+	border: 1px solid #e5e5b7;
+	color: #4a4a2b;
+	width: 250px;
+	margin-bottom: 22px;
+}
+form {
+    background: #eaf3f9;
+    border-radius: .3rem;
+    padding: 1.3rem;
+    border: #2274ac40 1px solid;
+	width:500px;
+}
+input {
+    background: #f5f0e6;
+    border: 0;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #839af5;
+	cursor:pointer;
+}
+.btn {
+    padding: 0.5rem;
+    border: 0;
+    background: #6c98c5;
+    font-size: 1.2em;
+    color: #fff;
+    text-shadow: 1px 1px 0px rgb(0 0 0 / 40%);
+    box-shadow: 0px 3px 0px #2f709f;
+    margin-top: 1.2rem;
+}
+.btn:hover {
+    background: #1e1e3c;
+    color: #b5b5b5;
+    box-shadow: none;
+	cursor:pointer;
+}
+.form-control {
+    display: block;
+    height: calc(1.5em + .75rem + 2px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #d6d8db;
+    background-color: #3c4760;
+    background-clip: padding-box;
+    border: 1px solid #72a7db;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.progress {
+    background-color: #3fee8c;
+    position: relative;
+    margin: 20px;
+    height: 1.2rem;
+}
+.progress-bar {
+    background-color: #7eeed8;
+    height: 1.2rem;
+}
+progress::-webkit-progress-value {
+    background: #3fee8c;
+}
+progress::-webkit-progress-bar {
+    background: #1e1e3c;
+}
+progress::-moz-progress-bar {
+    background: #3fee8c;
+}

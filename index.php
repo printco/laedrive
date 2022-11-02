@@ -1,96 +1,55 @@
 <?php
 
 $upload_max_filesize = ini_get("upload_max_filesize");
+$post_max_size = ini_get("post_max_size");
 
-$upload = false;
-$css = "";
-if( isset($_FILES['uplfile']) ){
-	$upload = true;
-	$f = $_FILES['uplfile'];
-	$msg = "";
-	$css = "error";
-	if( $f['error'] == 1 ){
-		$msg = "Error " . $f['error'];
-	} else {
-		if( is_uploaded_file($f['tmp_name']) ){
-			if( move_uploaded_file($f['tmp_name'],"./upload/".$f['name']) ){
-				
-				$css = "success";
-				$msg = "Upload file success";
-			}
-		}
-	}
-}
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<title>Lae Drive</title>
 	<head>
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
-	<style>
-	body{
-		font-family: sans-serif;
-		font-size: 13px;
-	}
-	.success {
-		background: #d6f3d6;
-		padding: 5px;
-		width: 300px;
-		text-align: center;
-		margin: 5px;
-		border: 1px solid green;
-		font-weight: bold;
-		color: green;
-	}
-	.error {
-		background: #efe3d8;
-		padding: 5px;
-		width: 300px;
-		text-align: center;
-		margin: 5px;
-		border: 1px solid #c77955;
-		font-weight: bold;
-		color: #ef7242;
-	}
-	.noti {
-		font-size: 10px;
-		padding: 3px 0;
-		background: #f9f9e5;
-		border: 1px solid #e5e5b7;
-		color: #4a4a2b;
-		width: 310px;
-		margin-bottom: 22px;
-	}
-	</style>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="upload.js"></script>
+	<script type="text/javascript" src="jquery.js"></script>
 	</head>
 	<body>
-		<div class='noti'>Maximum upload file size <?php echo $upload_max_filesize;?></div>
-		<?php
-		if( $upload ){
-			echo "<div class='msg $css'>$msg</div>";
-		}
-		?>
-		<form method="post" enctype="multipart/form-data">
-			<input type="file" name="uplfile" />
-			<input type="submit" value="Upload" />
-		</form>
+		<div class='noti' style="padding:5px 0 5px 5px;">
+			<div>Maximum upload file size <?php echo $upload_max_filesize;?></div>
+			<div>Maximum post data size <?php echo $post_max_size;?></div>
+		</div>
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-2"></div>
+				<div class="col-8">
+					<form id="upload_form" enctype="multipart/form-data" method="post">
+						<div class="form-group">
+							<input type="file" name="uploadingfile" id="uploadingfile">
+						</div>
+						<div class="form-group">
+							<input class="btn btn-primary" type="button" value="Upload File" name="btnSubmit"
+								   onclick="uploadFileHandler()">
+						</div>
+						<div class="form-group">
+							<div class="progress" id="progressDiv">
+								<progress id="progressBar" value="0" max="100" style="width:100%; height: 1.2rem;"></progress>
+							</div>
+						</div>
+						<div class="form-group">
+							<h3 id="status"></h3>
+							<p id="uploaded_progress"></p>
+						</div>
+					</form>
+				</div>
+				<div class="col-2"></div>
+			</div>
+		</div>
+		<div>
+			<ul id="filelist">
+			<?php
+				require_once "list.php";
+			?>
+			</ul>
+		</div>
 	</body>
-	<div>
-		<ul>
-		<?php
-			$dir = opendir("./upload");
-			while( $entry = readdir() ){
-				if( $entry == '..' || $entry == '..' ) continue;
-				$full_path = "./upload/$entry";
-				if( is_file($full_path) ){
-					$del = "<a href='delete.php?entry=$entry' style='color:red'>Delete</a>";
-					if( $entry == "readme.txt" ){
-						$del = "";
-					}
-					echo "<li><a href='$full_path'>$entry</a>&nbsp;$del</li>";
-				}
-			}
-			closedir($dir);
-		?>
-		</ul>
-	</div>
 </html>
