@@ -44,7 +44,7 @@ function abortHandler(event) {
 function list(){
 	_("waitstatus").innerHTML = "End upload";
 	$.ajax({
-		url: "remotelist.php",
+		url: "list.php",
 		success: function(li){
 			$("#filelist").html(li);
 		}

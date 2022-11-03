@@ -48,7 +48,7 @@ $post_max_size = ini_get("post_max_size");
 		<div>
 			<ul id="filelist">
 			<?php
-				require_once "remotelist.php";
+				require_once "list.php";
 			?>
 			</ul>
 		</div>
