@@ -44,7 +44,7 @@ function abortHandler(event) {
 function list(){
 	_("waitstatus").innerHTML = "End upload";
 	$.ajax({
-		url: "https://171.99.133.30:24443/laedrive/list.php",
+		url: "remotelist.php",
 		success: function(li){
 			$("#filelist").html(li);
 		}
