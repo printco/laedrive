@@ -32,7 +32,7 @@ $post_max_size = ini_get("post_max_size");
 						</div>
 						<div class="form-group">
 							<div class="progress" id="progressDiv">
-								<progress id="progressBar" value="0" max="100" style="width:100%; height: 1.2rem;"></progress>
+								<progress id="progressBar" value="0" max="100" style="width:100%; height: 30px;"></progress>
 							</div>
 						</div>
 						<div class="form-group">
