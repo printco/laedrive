@@ -29,6 +29,7 @@ $post_max_size = ini_get("post_max_size");
 						<div class="form-group">
 							<input class="btn btn-primary" type="button" value="Upload File" name="btnSubmit"
 								   onclick="uploadFileHandler()">
+							<span id="waitstatus"></span>
 						</div>
 						<div class="form-group">
 							<div class="progress" id="progressDiv">
@@ -47,7 +48,7 @@ $post_max_size = ini_get("post_max_size");
 		<div>
 			<ul id="filelist">
 			<?php
-				require_once "list.php";
+				require_once "remotelist.php";
 			?>
 			</ul>
 		</div>

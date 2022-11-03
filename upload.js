@@ -2,6 +2,7 @@ function _(e) {
     return document.getElementById(e);
 }
 function uploadFileHandler() {
+	_("waitstatus").innerHTML = "Please wait...";
     var file = _("uploadingfile").files[0];
 	if( file == undefined  ){
 		_("status").innerHTML = "<div>Please select file<div>";
@@ -24,7 +25,8 @@ function progressHandler(event) {
     _("uploaded_progress").innerHTML = "Uploaded " + loaded.toPrecision(5) + " Megabytes of " + total.toPrecision(5);//String output
     var percent = (event.loaded / event.total) * 100;//Get percentage of upload progress
     _("progressBar").value = Math.round(percent);//Round value to solid
-    _("status").innerHTML = Math.round(percent) + "% uploaded";//String output
+    _("status").innerHTML = Math.round(percent) + "% uploaded to temp";//String output
+	_("waitstatus").innerHTML = "Uploading to permanant drive...";
 }
 function completeHandler(event) {
     _("status").innerHTML = event.target.responseText;//Build and show response text
@@ -40,8 +42,9 @@ function abortHandler(event) {
 }
 
 function list(){
+	_("waitstatus").innerHTML = "End upload";
 	$.ajax({
-		url: "list.php",
+		url: "https://171.99.133.30:24443/laedrive/list.php",
 		success: function(li){
 			$("#filelist").html(li);
 		}
