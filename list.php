@@ -5,7 +5,7 @@ while( $entry = readdir() ){
 	if( $entry == '..' || $entry == '..' ) continue;
 	$full_path = "./upload/$entry";
 	if( is_file($full_path) ){
-		$del = "<a href='delete.php?entry=$entry' style='color:red'>Delete</a>";
+		$del = "<a href='delete.php?entry=$entry' style='color:red' onclick='return confirmDelete();'>Delete</a>";
 		if( $entry == "readme.txt" ){
 			$del = "";
 		}
