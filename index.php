@@ -65,7 +65,7 @@ $post_max_size = ini_get("post_max_size");
 		</div>
 		<div id="filelist">
 			<table>
-				<tr><th>File Name</th><th>File Date</th><th>&nbsp;</th></tr>
+				<tr><th>File Name</th><th>File Date</th><th>Size(KB)</th><th>&nbsp;</th></tr>
 			<?php
 				require_once "list.php";
 			?>
