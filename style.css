@@ -94,3 +94,19 @@ progress::-webkit-progress-bar {
 progress::-moz-progress-bar {
     background: #3fee8c;
 }
+
+
+#msteam-meet a {
+	    background-color: #6264a7;
+    padding: 10px;
+    margin: 5px;
+    width: 250px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: "Segoe UI";
+    color: #F5FFFF;
+    text-decoration: none;
+	    display: inline-block;
+}
