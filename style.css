@@ -100,7 +100,7 @@ progress::-moz-progress-bar {
 	    background-color: #6264a7;
     padding: 10px;
     margin: 5px;
-    width: 250px;
+    width: 270px;
     border-radius: 3px;
     text-align: center;
     font-size: 13px;
@@ -109,4 +109,20 @@ progress::-moz-progress-bar {
     color: #F5FFFF;
     text-decoration: none;
 	    display: inline-block;
+}
+
+#filelist table {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+
+#filelist table th {
+	    background-color: #9ee3de;
+    border: 1px solid #9ee3de;
+	padding: 2px 4px;
+}
+
+#filelist table td{
+    border: 1px solid #ddd;
+    padding: 2px 4px;
 }
