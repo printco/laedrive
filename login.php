@@ -11,13 +11,15 @@ if( count($_POST) > 0 ){
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	
+	write_log("User - $username try to login");
+	
 	if( ($username == "r" && $password == "1234")
 		|| ($username == "c" && $password == "1234")
 		|| ($username == "l" && $password == "1234")
 	){
 		$_SESSION['username'] = $username;
 		
-		write_log("$username loggin to system");
+		write_log("User - $username loggin to system");
 		
 		header("Location: index.php");
 	}

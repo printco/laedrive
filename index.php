@@ -46,6 +46,20 @@ $post_max_size = ini_get("post_max_size");
 	</script>
 	</head>
 	<body>
+		<div id="info">
+			<span>
+		<?php
+			echo "User name : $username";
+			if( isset($_SESSION['username']) ){
+				echo
+				'<span id="logout">
+					<a href="logout.php" onclick="return confirmLogout();">Logout</a>
+				</span>';
+			}
+		?>
+			<span>
+		</div>
+		<div id="wrap">
 		<div class='noti' style="padding:5px 0 5px 5px;">
 			<div>Maximum upload file size <?php echo $upload_max_filesize;?></div>
 			<div>Maximum post data size <?php echo $post_max_size;?></div>
@@ -101,5 +115,6 @@ $post_max_size = ini_get("post_max_size");
 		<?php 
 		}
 		?>
+		</div>
 	</body>
 </html>

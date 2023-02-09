@@ -1,4 +1,6 @@
 body{
+	padding:0;
+	margin:0;
 	font-family: sans-serif;
 	font-size: 13px;
 }
@@ -126,16 +128,28 @@ progress::-moz-progress-bar {
     border: 1px solid #ddd;
     padding: 2px 4px;
 }
-#logout a{
-    padding: 5px;
+#logout a {
     margin: 5px 0;
     display: inline-block;
     text-decoration: none;
-    border: 1px solid #ddd;
-    border-collapse: collapse;
-    width: 150px;
     text-align: center;
     font-weight: bold;
-    color: gray;
-    background-color: #ede9e9;
+    color: white;
+    position: absolute;
+    right: 7px;
+    top: 3px;
+}
+#logout a:hover{
+    color: black;
+	position: absolute;
+    right: 7px;
+    top: 3px;
+}
+#info {
+    padding: 10px;
+    background: #666f72;
+    color: white;
+}
+#wrap{
+	padding:10px;
 }
