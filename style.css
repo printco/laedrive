@@ -126,3 +126,16 @@ progress::-moz-progress-bar {
     border: 1px solid #ddd;
     padding: 2px 4px;
 }
+#logout a{
+    padding: 5px;
+    margin: 5px 0;
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    width: 150px;
+    text-align: center;
+    font-weight: bold;
+    color: gray;
+    background-color: #ede9e9;
+}

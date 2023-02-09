@@ -1,5 +1,15 @@
 <?php
 
+session_start();
+require_once "logging.php";
+
+if( ! isset($_SESSION['username']) ){
+	header("Location: login.php");
+}
+
+$username = $_SESSION['username'];
+write_log("User-$username in system");
+
 $upload_max_filesize = ini_get("upload_max_filesize");
 $post_max_size = ini_get("post_max_size");
 
@@ -22,6 +32,13 @@ $post_max_size = ini_get("post_max_size");
 	
 	function confirmDownload(){
 		if( confirm("Download?") ){
+			return true;
+		}
+		return false;
+	}
+	
+	function confirmLogout(){
+		if( confirm("Logout?") ){
 			return true;
 		}
 		return false;
@@ -65,11 +82,24 @@ $post_max_size = ini_get("post_max_size");
 		</div>
 		<div id="filelist">
 			<table>
+				<thead>
 				<tr><th>File Name</th><th>File Date</th><th>Size(KB)</th><th>Hash(SHA1)</th><th>&nbsp;</th></tr>
-			<?php
-				require_once "list.php";
-			?>
+				</thead>
+				<tbody>
+				<?php
+					require_once "list.php";
+				?>
+				</tbody>
 			</table>
 		</div>
+		<?php
+		if( isset($_SESSION['username']) ){
+		?>
+		<div id="logout">
+			<a href="logout.php" onclick="return confirmLogout();">Logout</a>
+		</div>
+		<?php 
+		}
+		?>
 	</body>
 </html>

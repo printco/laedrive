@@ -1,6 +1,11 @@
 <?php
 
+session_start();
+
+require_once "logging.php";
 require_once "permanantdrive.php";
+
+$username = $_SESSION['username'];
 
 //print_r($_FILES);die;
 if( isset($_FILES["uploadingfile"]) ){
@@ -30,8 +35,12 @@ if( isset($_FILES["uploadingfile"]) ){
 				//	echo "<div>Upload file to permanant drive success</div>";
 				//	exit;
 				//}
+				
+				write_log("User-$username was uploaded file : $original_file_name");
 			}
 		} else {
+			write_log("User-$username upload invalid file type : $type");
+			
 			echo "<div>";
 			echo "<div>Your mime type: $type</div>";
 			echo "<div>Allow only these type</div>";
